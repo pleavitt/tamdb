@@ -4,9 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MovieService } from './movie.service';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,

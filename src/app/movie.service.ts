@@ -21,5 +21,8 @@ export class MovieService {
   
   getMovies(): Observable<Movie[]> {
     return this.http.get(this.moviesUrl + '&sort_by=popularity.desc')
-    .pipe(map((data: any) => data.results.map(item => this.adapter.adapt(item))));  }
+    .pipe(map((data: any) => data.results.map(item => {
+      console.log(item);
+      return this.adapter.adapt(item);
+    })));  }
 }

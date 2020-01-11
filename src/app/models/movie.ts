@@ -7,6 +7,7 @@ export class Movie {
       public title: string,
       public overview: string,
       public poster_path: string,
+      public rating: number,
       public release_date: Date,
     ) { }
   }
@@ -22,6 +23,7 @@ export class MovieAdapter implements Adapter<Movie> {
       item.title,
       item.overview,
       item.poster_path,
+      item.vote_average * 10,
       new Date(item.release_date),
     );
   }

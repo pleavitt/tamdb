@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.movieService.getMovies()
     .subscribe(response => {
+      console.log("movies => ", response)
       this.movies = response;
-      console.log("results => ", response);
     });
   }
 }
