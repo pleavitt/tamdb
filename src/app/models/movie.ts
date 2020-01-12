@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from './adapter';
+import { format } from 'date-fns';
 
 export class Movie {
     constructor(
@@ -8,7 +9,7 @@ export class Movie {
       public overview: string,
       public poster_path: string,
       public rating: number,
-      public release_date: Date,
+      public release_date: string,
     ) { }
   }
 
@@ -24,7 +25,7 @@ export class MovieAdapter implements Adapter<Movie> {
       item.overview,
       item.poster_path,
       item.vote_average * 10,
-      new Date(item.release_date),
+      format(new Date(item.release_date), "MMMM yyyy"),
     );
   }
 }

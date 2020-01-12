@@ -1,6 +1,12 @@
 module.exports = {
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        lime: {
+          default: '#01D277',
+        },
+      },  
+    }
   },
   variants: {},
   plugins: []
