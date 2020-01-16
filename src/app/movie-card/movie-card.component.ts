@@ -10,7 +10,7 @@ export class MovieCardComponent implements OnInit {
 
   @Input() movie: Movie;
 
-  private imagePath = "https://image.tmdb.org/t/p/w342/";
+  public imagePath = "https://image.tmdb.org/t/p/w342/";
 
   constructor() { }
 
