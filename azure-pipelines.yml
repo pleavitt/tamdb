@@ -4,16 +4,16 @@ steps:
   displayName: 'npm install'
   inputs:
     command: install
-    workingDir: src/tamdb
+    workingDir: src/angular7
 
 - task: Npm@1
   displayName: 'Build Angular'
   inputs:
     command: custom
     customCommand: run build -- --prod
-    workingDir: src/tamdb
+    workingDir: src/angular7
 
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'angular'
-    targetPath: 'src/tamdb/dist'
+    targetPath: 'src/angular7/dist'
