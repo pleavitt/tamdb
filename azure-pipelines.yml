@@ -9,9 +9,16 @@ steps:
   displayName: 'Build Angular'
   inputs:
     command: custom
-    customCommand: run build -- --prod
+    customCommand: run build --prod
 
-- task: PublishPipelineArtifact@0
+# - task: PublishPipelineArtifact@0
+#   inputs:
+#     artifactName: 'movieDB'
+#     targetPath: 'dist'
+
+- task: PublishBuildArtifacts@1
   inputs:
-    artifactName: 'movieDB'
-    targetPath: 'dist'
+    PathtoPublish: 'dist/movieDB'
+    ArtifactName: 'movieDB'
+    publishLocation: 'Container'
+  displayName: 'Publish Artifacts'
