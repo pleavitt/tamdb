@@ -19,6 +19,6 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'dist/movieDB'
-    ArtifactName: 'movieDB'
+    ArtifactName: 'web-app'
     publishLocation: 'Container'
   displayName: 'Publish Artifacts'
