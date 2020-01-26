@@ -3,7 +3,10 @@ module.exports = {
     extend: {
       colors: {
         lime: {
-          default: '#01D277',
+          default: '#01d277',
+        },
+        darkblue: {
+          default: '#081c24',
         },
       },  
     }
