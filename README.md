@@ -6,6 +6,9 @@ This is an angular frontend project that consumes themoviedb api
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Demo
+
+https://elegant-jones-9639a9.netlify.com
 
 ## Running end-to-end tests
 
