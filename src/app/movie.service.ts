@@ -15,14 +15,22 @@ export class MovieService {
 
   private apiKey = '65e043c24785898be00b4abc12fcdaae';
 
-  private moviesUrl = 'https://api.themoviedb.org/3/discover/movie?api_key='+ this.apiKey;  // URL to web api
+  private tmdbUrl = 'https://api.themoviedb.org/3/';
 
-  constructor(private http: HttpClient, private adapter: MovieAdapter,) { }
-  
+  private popularMoviesUrl = this.tmdbUrl + 'discover/movie?api_key=' + this.apiKey;  // URL to web api
+
+ // private getMoviesUrl = this.tmdbUrl + 'discover/movie?api_key=' + this.apiKey;  // URL to web api
+
+  constructor(private http: HttpClient, private adapter: MovieAdapter, ) { }
+
   getMovies(): Observable<Movie[]> {
-    return this.http.get(this.moviesUrl + '&sort_by=popularity.desc')
-    .pipe(map((data: any) => data.results.map(item => {
-      console.log(item);
-      return this.adapter.adapt(item);
-    })));  }
+    return this.http.get(this.popularMoviesUrl + '&sort_by=popularity.desc')
+      .pipe(map((data: any) => data.results.map(item => this.adapter.adapt(item))));
+  }
+
+  getMovieDetail(movieId : number): Observable<Movie> {
+    this.popularMoviesUrl = this.tmdbUrl + 'movie/' + movieId + '?api_key=' + this.apiKey
+    return this.http.get(this.popularMoviesUrl)
+      .pipe(map((data: any) => this.adapter.adapt(data)));
+  }
 }

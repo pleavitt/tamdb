@@ -1,5 +1,5 @@
 <div class="w-100">
-    <a href="/donee/donee-2">
+    <a [routerLink] = "'/movie'" [state]="{ movie: movie }">
         <div class="relative shadow rounded-lg text-gray-800 hover:shadow-lg">
             <div
                 class="left-0 mt-4 ml-1 rounded-full absolute text-center font-bold text-xs text-white px-2 py-1 bg-orange-500">
@@ -9,7 +9,7 @@
             <div class="py-2 px-2">
                 <div class="text-indigo-100 font-bold font-title ">{{movie.title}}</div>
 
-                <div class="text-indigo-300 text-sm font-light my-2">{{movie.release_date}}</div>
+                <div class="text-indigo-300 text-sm font-light my-2">{{movie.release_date | date:'MMMM yyyy'}}</div>
             </div>
         </div>
     </a>

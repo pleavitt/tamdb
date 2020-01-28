@@ -1,0 +1,26 @@
+:host {
+    color: #eee;
+}
+
+.backdrop {
+    height: 33vh;
+    position: relative;
+}
+
+.section  {
+    display: flex;
+    flex-direction: row;
+
+    .poster {
+        flex: 0 0 40%;
+        box-shadow: 1px -1px 20px black;    }
+    
+    .information {
+        flex: 0 0 60%;
+    }
+
+}
+
+.summary {
+    border-top: 0.01em solid darkslategrey;
+}

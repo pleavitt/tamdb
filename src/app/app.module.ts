@@ -5,15 +5,21 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AppComponent } from './app.component';
 import { MovieService } from './movie.service';
 import { MovieCardComponent } from './movie-card/movie-card.component';
+import { AppRoutingModule } from './app-routing.module';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieDetailComponent,
+    MovieSearchComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [MovieService],
   bootstrap: [AppComponent]
