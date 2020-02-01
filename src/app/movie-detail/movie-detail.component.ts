@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
-import { async } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { Movie } from 'app/models/movie';
 import { MovieService } from 'app/movie.service';
-
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
