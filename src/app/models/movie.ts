@@ -8,13 +8,24 @@ export class Movie {
       public overview: string,
       public poster_path: string,
       public backdrop_path: string,
-      public rating: number,
+      public vote_average: number,
       public release_date: string,
       public summary: string,
       public runtime?: number,
-      public hours?: number,
-      public minutes?: number,
     ) { }
+
+    get rating(){
+      return this.vote_average * 10;
+    }
+
+    get hours(){
+      return Math.floor(this.runtime / 60)
+    }
+
+    get minutes(){
+      return this.runtime % 60
+    }
+
   }
 
 @Injectable({
@@ -29,12 +40,10 @@ export class MovieAdapter implements Adapter<Movie> {
       item.overview,
       item.poster_path,
       item.backdrop_path,
-      item.vote_average * 10,
+      item.vote_average,
       item.release_date,
       item.overview,
       item.runtime,
-      Math.floor(item.runtime / 60),
-      item.runtime % 60,
     );
   }
 }

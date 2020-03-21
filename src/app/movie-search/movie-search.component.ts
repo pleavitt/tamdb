@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from "../movie.service";
-import {trigger, transition, style, animate, query, stagger} from "@angular/animations";
+import { Movie } from '../models/movie';
+
+import { trigger, transition, style, animate, query, stagger } from "@angular/animations";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,38 +12,32 @@ import {trigger, transition, style, animate, query, stagger} from "@angular/anim
   animations: [
     trigger('listAnimation', [
       transition('* => *', [
-        // remember that :enter is a special
-        // selector that will return each
-        // newly inserted node in the ngFor list
-        query(':enter', style({ opacity: 0 })),
+        query(':enter', style({ opacity: 0 }), { optional: true }),
         query(':enter', stagger('100ms', [
           animate('1s', style({ opacity: 1 }))
-        ]))
+        ]), { optional: true })
       ])
-    ])  
+    ])
   ]
 })
+
 export class MovieSearchComponent implements OnInit {
   title = 'movieDB';
-  movies = [];
+  movies$: Observable<Array<Movie>>;
 
   bindingVar = '';
   fadeIn() {
-    console.log("in")
     this.bindingVar = 'fadeIn';
   }
   fadeOut() {
     this.bindingVar = 'fadeOut';
   }
   toggle() {
-    this.bindingVar == 'fadeOut' ? this.fadeIn() : this.fadeOut();
+    this.bindingVar === 'fadeOut' ? this.fadeIn() : this.fadeOut();
   }
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) { }
   ngOnInit() {
-    this.movieService.getMovies()
-    .subscribe(response => {
-      this.movies = response;
-    });
+    this.movies$ = this.movieService.popularMovies;
   }
 }

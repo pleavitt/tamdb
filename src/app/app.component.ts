@@ -36,11 +36,8 @@ export class AppComponent implements OnInit {
     this.bindingVar == 'fadeOut' ? this.fadeIn() : this.fadeOut();
   }
 
-  constructor(private movieService: MovieService) {}
+  constructor() {}
   ngOnInit() {
-    this.movieService.getMovies()
-    .subscribe(response => {
-      this.movies = response;
-    });
   }
+  
 }

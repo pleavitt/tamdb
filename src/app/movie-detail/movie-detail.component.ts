@@ -10,7 +10,7 @@ import { MovieService } from 'app/movie.service';
 export class MovieDetailComponent implements OnInit {
   movie: Movie;
   
-  public imagePath = "https://image.tmdb.org/t/p/w154/";
+  public IMAGE_PATH = "https://image.tmdb.org/t/p/w154/";
 
   public BACKDROP_PATH = 'http://image.tmdb.org/t/p/w1280';
   

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Movie } from 'app/models/movie';
 
 @Component({
@@ -6,15 +6,10 @@ import { Movie } from 'app/models/movie';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent {
 
   @Input() movie: Movie;
 
   public imagePath = "https://image.tmdb.org/t/p/w342/";
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

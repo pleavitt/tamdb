@@ -1,7 +1,7 @@
 <div class="w-100">
     <img src="{{BACKDROP_PATH + movie.backdrop_path}}" class="w-full" />
     <div class="section ml-4">
-        <img src="{{imagePath + movie.poster_path}}" class="poster rounded-lg -mt-16 w-12">
+        <img src="{{IMAGE_PATH + movie.poster_path}}" class="poster rounded-lg -mt-16 w-12">
         <div class="information py-2 px-4">
                 <div>{{movie.release_date | date:'yyyy'}} &middot; {{movie.rating}}%</div>
             <div>{{movie.hours && movie.hours + 'h '}} {{movie.minutes && movie.minutes + 'min'}}</div>
@@ -9,6 +9,6 @@
     </div>
     <div class="summary px-3 pb-6 pt-2 m-4">
         <h3 class="text-lg font-bold ">Overview</h3>
-        <p class="mt-2 font-sans font-light text-grey-dark">{{movie.summary}}</p>
+        <p class="mt-2 font-sans font-light text-grey-dark">{{movie.overview}}</p>
     </div>
 </div>
