@@ -32,7 +32,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/tailwind.scss"
+              "src/tailwind.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -46,7 +47,7 @@
               ],
               "optimization": true,
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from "../movie.service";
 import { Movie } from '../models/movie';
-
 import { trigger, transition, style, animate, query, stagger } from "@angular/animations";
 import { Observable } from 'rxjs';
 
