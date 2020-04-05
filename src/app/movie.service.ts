@@ -15,6 +15,8 @@ export class MovieService {
 
   private popularMoviesUrl = `${this.TMDB_URL}discover/movie?api_key=${this.API_KEY}&sort_by=popularity.desc`;
 
+  private movieSearchUrl = `${this.TMDB_URL}search/movie?api_key=${this.API_KEY}&sort_by=popularity.desc`;
+
   private popularMovies$;
 
   constructor(private http: HttpClient, private adapter: MovieAdapter, ) {
@@ -28,6 +30,13 @@ export class MovieService {
       );
     }
     return this.popularMovies$;
+  }
+
+  search(searchInput: string): Observable<Movie[]> {
+    return this.http.get(`${this.movieSearchUrl}&query=${searchInput}`)
+      .pipe(
+        map((data: any) => data.results.map(item => this.adapter.adapt(item)))
+      );
   }
 
   fetchMovies(): Observable<Movie[]> {

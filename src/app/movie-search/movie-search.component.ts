@@ -39,4 +39,9 @@ export class MovieSearchComponent implements OnInit {
   ngOnInit() {
     this.movies$ = this.movieService.popularMovies;
   }
+
+  search(searchInput: string): void {
+    this.movies$ = this.movieService.search(searchInput);
+  }
+
 }
